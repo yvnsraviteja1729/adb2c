@@ -7,7 +7,7 @@ pool:
 stages:
   - stage:
     jobs:
-      - job: Building Policies
+      - job: Building_Policies
         steps:
           - task: PowerShell@2
             inputs:
