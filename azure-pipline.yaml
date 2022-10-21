@@ -6,10 +6,11 @@ pool:
 
 stages:
   - stage:
+    variables:
+        - group: perf_variables
     jobs:
       - job: Building_Policies
-        variables:
-        - group: perf_variables
+        
         steps:
           - task: PowerShell@2
             inputs:
