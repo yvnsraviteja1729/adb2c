@@ -1,5 +1,8 @@
 trigger:
-  - feature/pipelines
+  batch: true
+  branches:
+    include:
+      - feature/pipelines
 
 pool:
   vmImage: "windows-latest"
