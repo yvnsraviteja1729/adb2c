@@ -43,13 +43,14 @@ if ( $PolicyPrefix.Length -gt 0 -and !$PolicyPrefix.EndsWith("_") ) {
 # create a dictionary of key/value pairs with things that should be replaced in the policies for the target tenant
 # the 'keys' are expected to be found in the generic B2C XML policy files
 $dict = New-Object 'system.collections.generic.dictionary[string,string]'
+Write-Host "##vso[task.setvariable variable=PolicyPrefix;]updated_prefix"
 $dict["{config:PolicyPrefix}"] = $PolicyPrefix
 $dict["{config:yourtenant.onmicrosoft.com}"] = $TenantName
 $dict["{config:ProxyIdentityExperienceFrameworkAppId}"] = $ProxyIdentityExperienceFrameworkAppId
 $dict["{config:IdentityExperienceFrameworkAppId}"] = $IdentityExperienceFrameworkAppId
 $dict["{config:b2c-extension-app:AppId}"] = $extensionsAppId
 $dict["{config:b2c-extension-app:objectId}"] = $extensionsObjectId
-Write-Host "##vso[task.setvariable variable=PolicyPrefix;]updated_prefix"
+
 foreach($key in $ConfigKeyValues.Keys ) {
     $dict[$key] = $ConfigKeyValues[$key]
 }
