@@ -1,5 +1,5 @@
 trigger:
-  - feature/piplines
+  - master
 
 pool:
   vmImage: "windows-latest"
