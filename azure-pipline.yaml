@@ -18,7 +18,7 @@ stages:
               script: |
                 # Echo out the Variables for the log      
                 write-host $(B2CTENANTNAME) $(CLIENTCREDAPPID) $(ProxyIdentityExperienceFrameworkAppName) $(IdentityExperienceFrameworkAppName) $(B2CExtensionAttributeAppName) $(AppInsightInstrumentationKey) 
-                write-host "Environment is $(environment)"
+                write-host $(environment)
                 # run the deployment script that modifies the policies and then uploads them
                 .\scripts\build-prepare.ps1 -TenantName $(B2CTENANTNAME) -AppID $(CLIENTCREDAPPID) -AppKey $(CLIENTCREDAPPKEY) -ConfigKeyValues $params 
           - task: CopyFiles@2
