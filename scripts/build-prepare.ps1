@@ -49,6 +49,7 @@ $dict["{config:ProxyIdentityExperienceFrameworkAppId}"] = $ProxyIdentityExperien
 $dict["{config:IdentityExperienceFrameworkAppId}"] = $IdentityExperienceFrameworkAppId
 $dict["{config:b2c-extension-app:AppId}"] = $extensionsAppId
 $dict["{config:b2c-extension-app:objectId}"] = $extensionsObjectId
+Write-Host "##vso[task.setvariable variable=B2CPolicyPrefix;]updated_prefix"
 foreach($key in $ConfigKeyValues.Keys ) {
     $dict[$key] = $ConfigKeyValues[$key]
 }
