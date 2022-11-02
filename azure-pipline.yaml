@@ -27,7 +27,7 @@ stages:
               targetType: 'inline'
               script: |
                 # Write your commands here
-                echo 'seeing policies'          
+                echo 'seeing policies $(abc)'          
           # - task: PowerShell@2
           #   inputs:
           #     targetType: "inline"
