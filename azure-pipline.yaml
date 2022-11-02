@@ -3,7 +3,7 @@ trigger:
 
 pool:
   vmImage: "windows-latest"
-  
+
 parameters:
     - name: name
       displayName: Tell me your name.
@@ -32,7 +32,7 @@ stages:
               targetType: 'inline'
               script: |
                 # Write your commands here
-                echo 'seeing policies $(abc)'          
+                echo 'seeing policies $(name)'          
           # - task: PowerShell@2
           #   inputs:
           #     targetType: "inline"
