@@ -11,8 +11,8 @@ parameters:
     
 stages:
   - stage: first
-    # variables:
-    #     - group: perf_variables
+    variables:
+        - group: perf_variables
     jobs:
       - job: Building_Policies
         
@@ -23,6 +23,7 @@ stages:
               script: |
                 # Write your commands here
                 echo 'Hello world'
+                echo $(environment)
 
       - job: seeing_Policies
         
