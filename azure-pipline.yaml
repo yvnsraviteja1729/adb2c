@@ -4,10 +4,10 @@ trigger:
 pool:
   vmImage: "windows-latest"
 
-# parameters:
-#     - name: name
-#       displayName: Tell me your name.
-#       type: string
+parameters:
+    - name: array
+      displayName: Tell me your name.
+      type: string
     
 stages:
   - stage: first
@@ -26,63 +26,69 @@ stages:
                 echo $(environment)
 
       - job: seeing_Policies
-        
         steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: |
-                # Write your commands here
-                echo 'seeing policies '          
+          - template: template.yml
+            parameters:
+              listOfString:
+                -first
+                -second
+              
+        # steps:
+        #   - task: Bash@3
+        #     inputs:
+        #       targetType: 'inline'
+        #       script: |
+        #         # Write your commands here
+        #         echo 'seeing policies '          
   
-  - stage: second
-    # variables:
-    #     - group: perf_variables
-    jobs:
-      - job: Building_Policies
+  # - stage: second
+  #   # variables:
+  #   #     - group: perf_variables
+  #   jobs:
+  #     - job: Building_Policies
         
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: |
-                # Write your commands here
-                echo 'Hello world'
+  #       steps:
+  #         - task: Bash@3
+  #           inputs:
+  #             targetType: 'inline'
+  #             script: |
+  #               # Write your commands here
+  #               echo 'Hello world'
 
-      - job: seeing_Policies
+  #     - job: seeing_Policies
         
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: |
-                # Write your commands here
-                echo "name         "
+  #       steps:
+  #         - task: Bash@3
+  #           inputs:
+  #             targetType: 'inline'
+  #             script: |
+  #               # Write your commands here
+  #               echo "name         "
   
-  - stage: third
-    variables:
-        - group: perf_variables
-    jobs:
-      - job: Building_Policies
+  # - stage: third
+  #   variables:
+  #       - group: perf_variables
+  #   jobs:
+  #     - job: Building_Policies
         
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: |
-                # Write your commands here
-                echo 'Hello world 3'
-                echo $(environment)
+  #       steps:
+  #         - task: Bash@3
+  #           inputs:
+  #             targetType: 'inline'
+  #             script: |
+  #               # Write your commands here
+  #               echo 'Hello world 3'
+  #               echo $(environment)
 
-      - job: seeing_Policies
+  #     - job: seeing_Policies
         
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: |
-                # Write your commands here
-                echo 'seeing policies 3'         
+  #       steps:
+  #         - task: Bash@3
+  #           inputs:
+  #             targetType: 'inline'
+  #             script: |
+  #               # Write your commands here
+  #               echo 'seeing policies 3'         
   
           # - task: PowerShell@2
           #   inputs:
