@@ -26,11 +26,10 @@ stages:
                 echo $(environment)
 
       - job: seeing_Policies
-        steps:
-          - template: template.yml
-            parameters:
-              listOfStrings:
-               values: ["a","b","c"]
+      - template: template.yml
+        parameters:
+          listOfStrings:
+             values: ["a","b","c"]
                
               
         # steps:
