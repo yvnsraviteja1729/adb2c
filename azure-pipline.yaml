@@ -30,6 +30,10 @@ stages:
           - template: template.yml
             parameters:
               listOfStrings:
+                things:
+                  - a
+                  - b
+                  - c
                 
               
         # steps:
