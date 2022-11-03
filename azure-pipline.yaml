@@ -29,12 +29,8 @@ stages:
         steps:
           - template: template.yml
             parameters:
-              listOfStrings:
-                things:
-                  - a
-                  - b
-                  - c
-                
+              listOfStrings: ["a","b","c"]
+               
               
         # steps:
         #   - task: Bash@3
