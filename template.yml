@@ -7,10 +7,12 @@ steps:
   - task: Bash@3
     inputs:
       targetType: 'inline'
-      script: |
-        #!/bin/bash
-        # Write your commands here
-        echo 'Hello world'
-        ${{ each project in parameters.whichState }}:
-        script: "echo 3 ${{ project }}"`
+      ${{ each project in parameters.whichState }}:
+      script: "echo 3 ${{ project }}"`
+#       script: |
+#         #!/bin/bash
+#         # Write your commands here
+#         echo 'Hello world'
+#         ${{ each project in parameters.whichState }}:
+#         script: "echo 3 ${{ project }}"`
         # echo ${{ parameters.whichState }}
