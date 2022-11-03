@@ -1,13 +1,14 @@
 parameters:
-  - name: listOfStrings
+  - name: whichState
     type: object
   
 
 steps:
   - task: Bash@3
     inputs:
-    targetType: 'inline'
-    script: |
-    # Write your commands here
-    echo 'Hello world'
-    echo $(listOfStrings)
+      targetType: 'inline'
+      script: |
+        #!/bin/bash
+        # Write your commands here
+        echo 'Hello world'
+        echo $(whichState)
