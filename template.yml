@@ -11,4 +11,4 @@ steps:
         #!/bin/bash
         # Write your commands here
         echo 'Hello world'
-        echo $(whichState)
+        echo ${{ parameters.whichState }}
