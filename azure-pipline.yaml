@@ -29,7 +29,7 @@ stages:
         steps:
           - template: template.yml
             parameters:
-              listOfString:
+              listOfStrings:
                 -first
                 -second
               
