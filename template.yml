@@ -11,6 +11,6 @@ steps:
         #!/bin/bash
         # Write your commands here
         echo 'Hello world'
-        myarray=(${{ parameters.whichState }})
+        myarray=(${{join(' ',parameters.whichState)}})
         echo "My array: ${myarray[@]}"
         echo "Number of elements in the array: ${#myarray[@]}"
