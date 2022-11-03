@@ -82,7 +82,7 @@ stages:
               targetType: 'inline'
               script: |
                 # Write your commands here
-                echo 'seeing policies 3' $(name)          
+                echo 'seeing policies 3'         
   
           # - task: PowerShell@2
           #   inputs:
