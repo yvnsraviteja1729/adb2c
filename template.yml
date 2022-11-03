@@ -7,12 +7,10 @@ steps:
   - task: Bash@3
     inputs:
       targetType: 'inline'
-      ${{ each project in parameters.whichState }}:
-      script: "echo 3 ${{ project }}"`
-#       script: |
-#         #!/bin/bash
-#         # Write your commands here
-#         echo 'Hello world'
-#         ${{ each project in parameters.whichState }}:
-#         script: "echo 3 ${{ project }}"`
-        # echo ${{ parameters.whichState }}
+      script: |
+        #!/bin/bash
+        # Write your commands here
+        echo 'Hello world'
+        myarray=(${{ parameters.whichState }})
+        echo "My array: ${myarray[@]}"
+        echo "Number of elements in the array: ${#myarray[@]}"
