@@ -1,9 +1,9 @@
 parameters:
 - name: listOfStrings
-  type: object
-  default:
-  - one
-  - two
+#   type: object
+#   default:
+#   - one
+#   - two
 
 steps:
 - ${{ each value in parameters.listOfStrings }}:
