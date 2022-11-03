@@ -5,9 +5,9 @@ parameters:
 
 steps:
 - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: |
-                # Write your commands here
-                echo 'Hello world'
-                echo $(listOfStrings)
+  inputs:
+  targetType: 'inline'
+  script: |
+  # Write your commands here
+  echo 'Hello world'
+  echo $(listOfStrings)
