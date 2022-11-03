@@ -4,5 +4,10 @@ parameters:
   default:{}
 
 steps:
-- ${{ each value in parameters.listOfStrings }}:
-  - script: echo ${{ value }}
+- task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                # Write your commands here
+                echo 'Hello world'
+                echo $(listOfStrings)
