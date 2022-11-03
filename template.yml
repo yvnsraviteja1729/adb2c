@@ -13,4 +13,5 @@ steps:
         echo 'Hello world'
         myarray=(${{join(' ',parameters.whichState)}})
         echo "My array: ${myarray[@]}"
+        echo ${myarray}
         echo "Number of elements in the array: ${#myarray[@]}"
