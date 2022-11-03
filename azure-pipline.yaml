@@ -4,10 +4,10 @@ trigger:
 pool:
   vmImage: "windows-latest"
 
-parameters:
-    - name: name
-      displayName: Tell me your name.
-      type: string
+# parameters:
+#     - name: name
+#       displayName: Tell me your name.
+#       type: string
     
 stages:
   - stage: first
@@ -33,7 +33,7 @@ stages:
               targetType: 'inline'
               script: |
                 # Write your commands here
-                echo 'seeing policies ' $(name)          
+                echo 'seeing policies '          
   
   - stage: second
     # variables:
@@ -57,7 +57,7 @@ stages:
               targetType: 'inline'
               script: |
                 # Write your commands here
-                echo $(name)          
+                echo "name         "
   
   - stage: third
     variables:
