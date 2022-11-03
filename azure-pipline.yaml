@@ -29,7 +29,7 @@ stages:
         steps:
           - template: template.yml
             parameters:
-              whichStage:
+              whichState:
                   - 'Shop_Browse'
                   - 'Shop_CMS'
                   - 'Shop_BAC'
