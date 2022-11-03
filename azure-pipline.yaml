@@ -14,16 +14,16 @@ stages:
     variables:
         - group: perf_variables
     jobs:
-      - job: Building_Policies
+      # - job: Building_Policies
         
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: |
-                # Write your commands here
-                echo 'Hello world'
-                echo $(environment)
+      #   steps:
+      #     - task: Bash@3
+      #       inputs:
+      #         targetType: 'inline'
+      #         script: |
+      #           # Write your commands here
+      #           echo 'Hello world'
+      #           echo $(environment)
 
       - job: seeing_Policies
         steps:
