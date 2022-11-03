@@ -30,8 +30,7 @@ stages:
           - template: template.yml
             parameters:
               listOfStrings:
-                -first
-                -second
+                
               
         # steps:
         #   - task: Bash@3
