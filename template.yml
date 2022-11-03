@@ -11,4 +11,6 @@ steps:
         #!/bin/bash
         # Write your commands here
         echo 'Hello world'
-        echo ${{ parameters.whichState }}
+        ${{ each project in parameters.whichState }}:
+        script: "echo 3 ${{ project }}"`
+        # echo ${{ parameters.whichState }}
