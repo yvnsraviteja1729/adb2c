@@ -1,13 +1,13 @@
 parameters:
-- name: listOfStrings
-  type: object
-  default:{}
+  - name: listOfStrings
+    type: object
+  
 
 steps:
-- task: Bash@3
-  inputs:
-  targetType: 'inline'
-  script: |
-  # Write your commands here
-  echo 'Hello world'
-  echo $(listOfStrings)
+  - task: Bash@3
+    inputs:
+    targetType: 'inline'
+    script: |
+    # Write your commands here
+    echo 'Hello world'
+    echo $(listOfStrings)
