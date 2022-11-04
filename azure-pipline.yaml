@@ -46,7 +46,7 @@ stages:
     #     - group: perf_variables
     jobs:
       - job: Building_Policies
-        
+        timeoutInMinutes: 1
         steps:
           - task: Bash@3
             inputs:
@@ -54,6 +54,7 @@ stages:
               script: |
                 # Write your commands here
                 echo 'Hello world'
+                sleep 100
 
       - job: seeing_Policies
         
