@@ -18,7 +18,7 @@ stages:
                 # write-host $(B2CTENANTNAME) $(CLIENTCREDAPPID) $(ProxyIdentityExperienceFrameworkAppName) $(IdentityExperienceFrameworkAppName) $(B2CExtensionAttributeAppName) $(AppInsightInstrumentationKey) 
                 # run the deployment script that modifies the policies and then uploads them
                 # .\scripts\build-prepare.ps1 -PolicyPath .\policies -PolicyPrefix $(B2CPolicyPrefix) -TenantName $(B2CTENANTNAME) -AppID $(CLIENTCREDAPPID) -AppKey $(CLIENTCREDAPPKEY) -ProxyIdentityExperienceFrameworkAppName $(ProxyIdentityExperienceFrameworkAppName) -IdentityExperienceFrameworkAppName $(IdentityExperienceFrameworkAppName) -B2CExtensionAttributeAppName $(B2CExtensionAttributeAppName) -ConfigKeyValues $params 
-                .\runShells.ps1 -ScriptsPath .\scripts
+                .\runShells.ps1 
           # - task: CopyFiles@2
           #   inputs:
           #     SourceFolder: "$(System.DefaultWorkingDirectory)/policies"
