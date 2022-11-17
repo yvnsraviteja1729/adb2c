@@ -1,12 +1,12 @@
 param (
     [Parameter(Mandatory=$true)][string]$ScriptsPath = ""                                        
 )
-write-host $ScirptsPath
+write-host $ScriptsPath
 write-host "hello world"
 if ( "" -eq $ScriptsPath ) {
     $ScriptsPath = (get-location).Path
 }
-write-host $ScirptsPath
+write-host $ScriptsPath
 # $files = get-childitem -path $ScriptsPath -name -include *.ps1 | Where-Object {! $_.PSIsContainer }
 # foreach( $file in $files ) {
 #     $PowerShellFile = (Join-Path -Path $PolicyPath -ChildPath $file)
