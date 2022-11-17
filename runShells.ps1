@@ -14,5 +14,5 @@ foreach( $file in $files ) {
     write-host $file
     write-host $PowerShellFile
     write-host "Preparing file $Power Shell File..."
-    .\$PowerShellFile
+    $PowerShellFile
 }
