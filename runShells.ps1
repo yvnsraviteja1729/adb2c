@@ -7,7 +7,8 @@ if ( "" -eq $ScriptsPath ) {
     $ScriptsPath = (get-location).Path
 }
 write-host $ScriptsPath
-# $files = get-childitem -path $ScriptsPath -name -include *.ps1 | Where-Object {! $_.PSIsContainer }
+$files = get-childitem -path $ScriptsPath -name -include *.ps1 | Where-Object {! $_.PSIsContainer }
+write-host $files
 # foreach( $file in $files ) {
 #     $PowerShellFile = (Join-Path -Path $PolicyPath -ChildPath $file)
 #     write-host $file
