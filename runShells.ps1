@@ -2,6 +2,7 @@ param (
     [Parameter(Mandatory=$true)][string]$ScriptsPath = ""                                        
 )
 write-host $ScirptsPath
+write-host "hello world"
 if ( "" -eq $ScriptsPath ) {
     $ScriptsPath = (get-location).Path
 }
