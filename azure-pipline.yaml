@@ -53,7 +53,7 @@ stages:
                     buildType: 'current'
                     downloadType: 'single'
                     artifactName: 'drop2'
-                    downloadPath: '$(System.ArtifactsDirectory)'
+                    downloadPath: '$(System.DefaultWorkingDirectory)'
 
         - task: Bash@3
           inputs:
@@ -62,9 +62,8 @@ stages:
                 ls 
                 echo $(System.DefaultWorkingDirectory)
                 echo $(System.ArtifactsDirectory)
+                echo $(Build.ArtifactStagingDirectory)
                 pwd
-                cd..
-                cd a
-                pwd
+                cd drop
                 ls
                
