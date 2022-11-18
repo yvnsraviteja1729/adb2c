@@ -48,19 +48,25 @@ stages:
       - job: download
         dependsOn: Building_Policies
         steps:
-          - task: DownloadPipelineArtifact@2
-            inputs:
-              buildType: 'current'
-              targetPath: '$(Pipeline.Workspace)/downloads'
-          - task: Bash@3
-            inputs:
+        - task: DownloadBuildArtifacts@0
+          inputs:
+            buildType: 'current'
+            downloadType: 'single'
+            artifactName: 'drop'
+            downloadPath: '$(System.ArtifactsDirectory)'
+
+        - task: DownloadBuildArtifacts@0
+          inputs:
+                    buildType: 'current'
+                    downloadType: 'single'
+                    artifactName: 'drop2'
+                    downloadPath: '$(System.ArtifactsDirectory)'
+
+        - task: Bash@3
+          inputs:
               targetType: "inline"
               script: |
                 ls 
-                pwd
-                cd $(Pipeline.Workspace)
+                cd /home/vsts/work/1/a/
                 ls
-                cd $(Pipeline.Workspace)/downloads
-                ls
-                pwd  
-                 
+               
