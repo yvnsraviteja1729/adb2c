@@ -57,6 +57,7 @@ stages:
               targetType: "inline"
               script: |
                 ls 
+                pwd
                 cd $(Pipeline.Workspace)
                 ls
                 cd $(Pipeline.Workspace)/downloads
