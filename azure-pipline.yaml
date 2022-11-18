@@ -63,4 +63,7 @@ stages:
                 echo $(System.DefaultWorkingDirectory)
                 echo $(System.ArtifactsDirectory)
                 pwd
+                cd $(System.ArtifactsDirectory)
+                pwd
+                ls
                
