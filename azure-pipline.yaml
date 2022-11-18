@@ -64,6 +64,6 @@ stages:
                 echo $(System.ArtifactsDirectory)
                 echo $(Build.ArtifactStagingDirectory)
                 pwd
-                cd drop
+                cd $(Build.ArtifactStagingDirectory)
                 ls
                
