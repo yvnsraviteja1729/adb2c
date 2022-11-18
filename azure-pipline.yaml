@@ -39,12 +39,12 @@ stages:
             inputs:
               PathtoPublish: "$(Build.ArtifactStagingDirectory)"
               ArtifactName: "drop"
-              publishLocation: "Container"      
+              # publishLocation: ""      
           - task: PublishBuildArtifacts@1
             inputs:
               PathtoPublish: "$(Build.ArtifactStagingDirectory)"
               ArtifactName: "drop2"
-              publishLocation: "Container"          
+              # publishLocation: "Container"          
       - job: download
         dependsOn: Building_Policies
         steps:
