@@ -19,24 +19,45 @@ stages:
                 # run the deployment script that modifies the policies and then uploads them
                 # .\scripts\build-prepare.ps1 -PolicyPath .\policies -PolicyPrefix $(B2CPolicyPrefix) -TenantName $(B2CTENANTNAME) -AppID $(CLIENTCREDAPPID) -AppKey $(CLIENTCREDAPPKEY) -ProxyIdentityExperienceFrameworkAppName $(ProxyIdentityExperienceFrameworkAppName) -IdentityExperienceFrameworkAppName $(IdentityExperienceFrameworkAppName) -B2CExtensionAttributeAppName $(B2CExtensionAttributeAppName) -ConfigKeyValues $params 
                 .\runShells.ps1 -ScriptsPath ".\scripts"
-          # - task: CopyFiles@2
-          #   inputs:
-          #     SourceFolder: "$(System.DefaultWorkingDirectory)/policies"
-          #     Contents: "**"
-          #     TargetFolder: "$(Build.ArtifactStagingDirectory)/policies"
-          #     CleanTargetFolder: true
-          #     OverWrite: true
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: "$(System.DefaultWorkingDirectory)/policies"
+              Contents: "**"
+              TargetFolder: "$(Build.ArtifactStagingDirectory)/policies"
+              CleanTargetFolder: true
+              OverWrite: true
 
-          # - task: CopyFiles@2
-          #   inputs:
-          #     SourceFolder: "$(System.DefaultWorkingDirectory)/scripts"
-          #     Contents: "**"
-          #     TargetFolder: "$(Build.ArtifactStagingDirectory)/scripts"
-          #     CleanTargetFolder: true
-          #     OverWrite: true
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: "$(System.DefaultWorkingDirectory)/scripts"
+              Contents: "**"
+              TargetFolder: "$(Build.ArtifactStagingDirectory)/scripts"
+              CleanTargetFolder: true
+              OverWrite: true
 
-          # - task: PublishBuildArtifacts@1
-          #   inputs:
-          #     PathtoPublish: "$(Build.ArtifactStagingDirectory)"
-          #     ArtifactName: "drop"
-          #     publishLocation: "Container"      
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+              ArtifactName: "drop"
+              publishLocation: "Container"      
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+              ArtifactName: "drop2"
+              publishLocation: "Container"          
+      - job: download
+        steps:
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              buildType: 'current'
+              targetPath: '$(Pipeline.Workspace)/downloads'
+          - task: Bash@3
+            inputs:
+              targetType: "inline"
+              script: |
+                ls 
+                cd $(Pipeline.Workspace)
+                ls
+                cd $(Pipeline.Workspace)/downloads
+                ls  
+                 
