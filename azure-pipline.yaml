@@ -6,12 +6,13 @@ pool:
   vmImage: "windows-latest"
 
 schedules:
-  - cron: "54 9 * * Mon-Fri"
-    displayName: Daily midnight build
-    branches:
-      include:
-      - master
-      - features/*
+- cron: "0/60 */24 * * *"
+  displayName: Every 6 hours build
+  branches:
+    include:
+    - releases/*
+  always: true
+
 stages:
   - stage:
     jobs:
