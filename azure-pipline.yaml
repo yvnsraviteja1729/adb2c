@@ -70,4 +70,11 @@ stages:
                 pwd
                 cd $(Build.ArtifactStagingDirectory)
                 ls
-               
+        - task: SendEmail@1
+          inputs:
+            To: 'yvnsraviteja@gmail.com'
+            From: 'azuredevops@microsoft.com'
+            Subject: 'build details'
+            Body: 'hi'
+            BodyAsHtml: false
+            AddAttachment: false
