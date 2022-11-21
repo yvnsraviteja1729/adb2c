@@ -2,7 +2,7 @@ trigger:
   - master
 
 schedules:
-  - cron: "* * * * Mon-Fri"
+  - cron: "* */24 */3 * Mon-Fri"
     displayName: Daily midnight build
     branches:
       include:
