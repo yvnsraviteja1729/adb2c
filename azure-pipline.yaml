@@ -10,7 +10,7 @@ schedules:
   displayName: Every 6 hours build
   branches:
     include:
-    - releases/*
+    - feature/*
   always: true
 
 stages:
