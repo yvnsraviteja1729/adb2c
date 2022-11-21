@@ -1,6 +1,15 @@
 trigger:
   - master
 
+schedules:
+  - cron: "* * * * *"
+    displayName: Daily midnight build
+    branches:
+      include:
+      - master
+      # - features/*
+      # exclude:
+      # - releases/ancient/*
 pool:
   vmImage: "windows-latest"
     
