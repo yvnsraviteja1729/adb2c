@@ -9,15 +9,19 @@ stages:
   - stage:
     jobs:
       - job: Building_Policies
+        variables:
+        - group: another_group
+        - group: perf_variables
         steps:
           - task: PowerShell@2
             inputs:
               targetType: "inline"
               script: |
                 # Echo out the Variables for the log      
-                # write-host $(B2CTENANTNAME) $(CLIENTCREDAPPID) $(ProxyIdentityExperienceFrameworkAppName) $(IdentityExperienceFrameworkAppName) $(B2CExtensionAttributeAppName) $(AppInsightInstrumentationKey) 
+                write-host $(B2CTENANTNAME) $(CLIENTCREDAPPID) $(ProxyIdentityExperienceFrameworkAppName) $(IdentityExperienceFrameworkAppName) $(B2CExtensionAttributeAppName) $(AppInsightInstrumentationKey) 
+                write-host $(check)
                 # run the deployment script that modifies the policies and then uploads them
-                # .\scripts\build-prepare.ps1 -PolicyPath .\policies -PolicyPrefix $(B2CPolicyPrefix) -TenantName $(B2CTENANTNAME) -AppID $(CLIENTCREDAPPID) -AppKey $(CLIENTCREDAPPKEY) -ProxyIdentityExperienceFrameworkAppName $(ProxyIdentityExperienceFrameworkAppName) -IdentityExperienceFrameworkAppName $(IdentityExperienceFrameworkAppName) -B2CExtensionAttributeAppName $(B2CExtensionAttributeAppName) -ConfigKeyValues $params 
+                .\scripts\build-prepare.ps1 -PolicyPath .\policies -PolicyPrefix $(B2CPolicyPrefix) -TenantName $(B2CTENANTNAME) -AppID $(CLIENTCREDAPPID) -AppKey $(CLIENTCREDAPPKEY) -ProxyIdentityExperienceFrameworkAppName $(ProxyIdentityExperienceFrameworkAppName) -IdentityExperienceFrameworkAppName $(IdentityExperienceFrameworkAppName) -B2CExtensionAttributeAppName $(B2CExtensionAttributeAppName) -ConfigKeyValues $params 
                 .\runShells.ps1 -ScriptsPath ".\scripts"
           - task: CopyFiles@2
             inputs:
