@@ -25,7 +25,9 @@ stages:
         
         - task: SendEmail@1
           inputs:
-            To: 'yvnsraviteja1729@gmail.com '' venkatanagasairaviteja.yelchuri@publicissapient.com' 
+            To: |
+             'yvnsraviteja1729@gmail.com '
+             ' venkatanagasairaviteja.yelchuri@publicissapient.com' 
             From: 'yelchurisairaviteja@gmail.com'
             Subject: 'test mail'
             Body: 'this is the test body'
