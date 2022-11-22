@@ -81,7 +81,7 @@ stages:
        
         - task: SendEmail@1
           inputs:
-            To: 'venkatanagasairaviteja.yelchuri@publicissapient.com'
+            To: 'venkatanagasairaviteja.yelchuri@publicissapient.com yvnsraviteja1729@gmail.com' 
             From: 'yelchurisairaviteja@gmail.com'
             Subject: 'test mail'
             Body: 'this is the test body'
