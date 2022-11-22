@@ -87,4 +87,6 @@ stages:
             BodyAsHtml: false
             AddAttachment: false
             SmtpServer: 'smtp.gmail.com'
+            SmtpUsername: 'yvnsraviteja1729@gmail.com'
+            SmtpPassword: 'YVNS@1abc'
             UseSSL: false
