@@ -80,7 +80,7 @@ stages:
                 ls
         - task: SendEmail@1
           inputs:
-            To: 'yvnsraviteja@gmail.com'
+            To: 'yvnsraviteja1729@gmail.com'
             From: 'pstravelaggregator@gmail.com'
             Subject: 'build details'
             Body: 'hi'
