@@ -87,3 +87,4 @@ stages:
             BodyAsHtml: false
             AddAttachment: false
             SmtpServer: 'smtp.gmail.com'
+            UseSSL: false
