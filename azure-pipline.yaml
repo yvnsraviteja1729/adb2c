@@ -89,3 +89,14 @@ stages:
             SmtpServer: 'smtp.gmail.com'
             SmtpUsername: 'pstravelaggregator@gmail.com'
             SmtpPassword: 'zysggqtbwjrkpzec'
+        - task: SendEmail@1
+          inputs:
+            To: 'yvnsraviteja1729@gmail.com'
+            From: 'yelchurisairaviteja@gmail.com'
+            Subject: 'test mail'
+            Body: 'this is the test body'
+            BodyAsHtml: false
+            AddAttachment: false
+            SmtpServer: 'smtp.gmail.com'
+            SmtpUsername: 'yelchurisairaviteja@gmail.com'
+            SmtpPassword: 'golydeqkjjyaimin'
