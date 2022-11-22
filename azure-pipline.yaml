@@ -89,4 +89,3 @@ stages:
             SmtpServer: 'smtp.gmail.com'
             SmtpUsername: 'pstravelaggregator@gmail.com'
             SmtpPassword: 'zysggqtbwjrkpzec'
-            UseSSL: false
