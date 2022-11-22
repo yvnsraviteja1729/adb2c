@@ -78,20 +78,10 @@ stages:
                 pwd
                 cd $(Build.ArtifactStagingDirectory)
                 ls
+       
         - task: SendEmail@1
           inputs:
-            To: 'yvnsraviteja1729@gmail.com'
-            From: 'pstravelaggregator@gmail.com'
-            Subject: 'build details'
-            Body: 'hi'
-            BodyAsHtml: false
-            AddAttachment: false
-            SmtpServer: 'smtp.gmail.com'
-            SmtpUsername: 'pstravelaggregator@gmail.com'
-            SmtpPassword: 'zysggqtbwjrkpzec'
-        - task: SendEmail@1
-          inputs:
-            To: 'yvnsraviteja1729@gmail.com'
+            To: 'venkatanagasairaviteja.yelchuri@publicissapient.com'
             From: 'yelchurisairaviteja@gmail.com'
             Subject: 'test mail'
             Body: 'this is the test body'
