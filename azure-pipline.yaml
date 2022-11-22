@@ -68,13 +68,12 @@ stages:
         
         steps:
           - task: Bash@3
-            timeoutInMinutes: 1
             inputs:
               targetType: 'inline'
               script: |
                 # Write your commands here
                 echo "name         "
-                sleep 60
+            
   
   - stage: third
     variables:
