@@ -1,25 +1,25 @@
 trigger:
   - master
 
-schedules:
-  - cron: "0 */24 */3 * Mon-Fri"
-    displayName: Daily midnight build
-    branches:
-      include:
-      - master
-      # - features/*
-      # exclude:
-      # - releases/ancient/*
+# schedules:
+#   - cron: "0 */24 */3 * Mon-Fri"
+#     displayName: Daily midnight build
+#     branches:
+#       include:
+#       - master
+# - features/*
+# exclude:
+# - releases/ancient/*
 pool:
   vmImage: "windows-latest"
-    
+
 stages:
   - stage: first
     variables:
-        - group: perf_variables
+      - group: perf_variables
     jobs:
       # - job: Building_Policies
-        
+
       #   steps:
       #     - task: Bash@3
       #       inputs:
@@ -34,81 +34,78 @@ stages:
           - template: template.yml
             parameters:
               whichState:
-                  - 'Shop_Browse'
-                  - 'Shop_CMS'
-                  - 'Shop_BAC'
-                  - 'Shop_Personalization'
-                  - 'Manual_Execution'
-     
-               
-              
+                - "Shop_Browse"
+                - "Shop_CMS"
+                - "Shop_BAC"
+                - "Shop_Personalization"
+                - "Manual_Execution"
+
         # steps:
         #   - task: Bash@3
         #     inputs:
         #       targetType: 'inline'
         #       script: |
         #         # Write your commands here
-        #         echo 'seeing policies '          
-  
+        #         echo 'seeing policies '
+
   - stage: second
     # variables:
     #     - group: perf_variables
     jobs:
       - job: Building_Policies
-        
+
         steps:
           - task: Bash@3
             inputs:
-              targetType: 'inline'
+              targetType: "inline"
               script: |
                 # Write your commands here
                 echo 'Hello world'
 
       - job: seeing_Policies
-        
+
         steps:
           - task: Bash@3
             inputs:
-              targetType: 'inline'
+              targetType: "inline"
               script: |
                 # Write your commands here
                 echo "name         "
-            
-  
+
   - stage: third
     variables:
-        - group: perf_variables
+      - group: perf_variables
     jobs:
       - job: Building_Policies
-        
+
         steps:
           - task: Bash@3
             inputs:
-              targetType: 'inline'
+              targetType: "inline"
               script: |
                 # Write your commands here
                 echo 'Hello world 3'
                 echo $(environment)
 
       - job: seeing_Policies
-        
+
         steps:
           - task: Bash@3
             inputs:
-              targetType: 'inline'
+              targetType: "inline"
               script: |
                 # Write your commands here
-                echo 'seeing policies 3'         
-  
+                echo 'seeing policies 3'
+
           # - task: PowerShell@2
           #   inputs:
           #     targetType: "inline"
           #     script: |
-          #       # Echo out the Variables for the log      
+          #       # Echo out the Variables for the log
           #       write-host $(environment)
-          #       write-host $(B2CTENANTNAME) $(CLIENTCREDAPPID) $(ProxyIdentityExperienceFrameworkAppName) $(IdentityExperienceFrameworkAppName) $(B2CExtensionAttributeAppName) $(AppInsightInstrumentationKey) 
+          #       write-host $(B2CTENANTNAME) $(CLIENTCREDAPPID) $(ProxyIdentityExperienceFrameworkAppName) $(IdentityExperienceFrameworkAppName) $(B2CExtensionAttributeAppName) $(AppInsightInstrumentationKey)
           #       # run the deployment script that modifies the policies and then uploads them
-          #       .\scripts\build-prepare.ps1 -PolicyPath .\policies -PolicyPrefix $(B2CPolicyPrefix) -TenantName $(B2CTENANTNAME) -AppID $(CLIENTCREDAPPID) -AppKey $(CLIENTCREDAPPKEY) -ConfigKeyValues $params 
+          #       .\scripts\build-prepare.ps1 -PolicyPath .\policies -PolicyPrefix $(B2CPolicyPrefix) -TenantName $(B2CTENANTNAME) -AppID $(CLIENTCREDAPPID) -AppKey $(CLIENTCREDAPPKEY) -ConfigKeyValues $params
           # - task: CopyFiles@2
           #   inputs:
           #     SourceFolder: "$(System.DefaultWorkingDirectory)/policies"
@@ -129,4 +126,4 @@ stages:
           #   inputs:
           #     PathtoPublish: "$(Build.ArtifactStagingDirectory)"
           #     ArtifactName: "drop"
-          #     publishLocation: "Container"      
+          #     publishLocation: "Container"
