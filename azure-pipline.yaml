@@ -1,6 +1,6 @@
 trigger:
   - master
-
+# hi
 # schedules:
 #   - cron: "0 */24 */3 * Mon-Fri"
 #     displayName: Daily midnight build
