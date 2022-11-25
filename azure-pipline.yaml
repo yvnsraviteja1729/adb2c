@@ -40,7 +40,6 @@ stages:
                 dc-cli configure --clientId fb5c373c-73c4-406b-9d1e-2c25dff72870 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
                 cd /
                 pwd
-                cd D
-                pwd
+                ls -a
 
  
