@@ -94,7 +94,6 @@ stages:
       - group: perf_variables
     jobs:
       - job: Building_Policies
-
         steps:
           - task: Bash@3
             inputs:
@@ -113,8 +112,18 @@ stages:
               script: |
                 # Write your commands here
                 echo 'seeing policies 3'
-
-          # - task: PowerShell@2
+      - deployment: DeployWeb
+        displayName: deploy Web App
+        pool:
+          vmImage: 'Ubuntu-latest'
+        # creates an environment if it doesn't exist
+        environment: 'manual_approval'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - script: echo Hello world
+              # - task: PowerShell@2
           #   inputs:
           #     targetType: "inline"
           #     script: |
