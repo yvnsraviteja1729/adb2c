@@ -77,9 +77,10 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
-                # Write your commands here
-                echo 'Hello world 3'
-                echo $(environment)
+                pwd
+                ls
+                cd /home/vsts/work/1
+                pwd
 
       - job: seeing_Policies
         
