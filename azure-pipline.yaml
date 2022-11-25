@@ -14,116 +14,31 @@ pool:
   vmImage: "windows-latest"
 
 stages:
-  - stage: first
+  - stage:
     variables:
-      - group: perf_variables
+      - group: asda-amplience-dev-vg
+      - group: asda-amplience-qa-vg
+
     jobs:
-      # - job: Building_Policies
-
-      #   steps:
-      #     - task: Bash@3
-      #       inputs:
-      #         targetType: 'inline'
-      #         script: |
-      #           # Write your commands here
-      #           echo 'Hello world'
-      #           echo $(environment)
-
-      - job: seeing_Policies
+      - job: Building_Scripts
         steps:
-          - template: template.yml
-            parameters:
-              whichState:
-                - "Shop_Browse"
-                - "Shop_CMS"
-                - "Shop_BAC"
-                - "Shop_Personalization"
-                - "Manual_Execution"
+          - task: NodeTool@0
+            inputs:
+              versionSpec: 16.x
+            displayName: "Install Node.js"
+            # - task: Npm@1
+            #   displayName: Npm install
+            #   inputs:
+            #     command: "install"
+            #     # verbose: false
+            condition: succeeded()
 
-        # steps:
-        #   - task: Bash@3
-        #     inputs:
-        #       targetType: 'inline'
-        #       script: |
-        #         # Write your commands here
-        #         echo 'seeing policies '
+          - script: |
+              npm install -g @amplience/dc-cli
+            displayName: "npm install"
 
-  - stage: second
-    # variables:
-    #     - group: perf_variables
-    jobs:
-      - job: Building_Policies
-
-        steps:
-          - task: Bash@3
+          - task: PowerShell@2
             inputs:
               targetType: "inline"
               script: |
-                # Write your commands here
-                echo 'Hello world'
-
-      - job: seeing_Policies
-
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: "inline"
-              script: |
-                # Write your commands here
-                echo "name         "
-
-  - stage: third
-    variables:
-      - group: perf_variables
-    jobs:
-      - job: Building_Policies
-
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: "inline"
-              script: |
-                # Write your commands here
-                echo 'Hello world 3'
-                echo $(environment)
-
-      - job: seeing_Policies
-
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: "inline"
-              script: |
-                # Write your commands here
-                echo 'seeing policies 3'
-
-          # - task: PowerShell@2
-          #   inputs:
-          #     targetType: "inline"
-          #     script: |
-          #       # Echo out the Variables for the log
-          #       write-host $(environment)
-          #       write-host $(B2CTENANTNAME) $(CLIENTCREDAPPID) $(ProxyIdentityExperienceFrameworkAppName) $(IdentityExperienceFrameworkAppName) $(B2CExtensionAttributeAppName) $(AppInsightInstrumentationKey)
-          #       # run the deployment script that modifies the policies and then uploads them
-          #       .\scripts\build-prepare.ps1 -PolicyPath .\policies -PolicyPrefix $(B2CPolicyPrefix) -TenantName $(B2CTENANTNAME) -AppID $(CLIENTCREDAPPID) -AppKey $(CLIENTCREDAPPKEY) -ConfigKeyValues $params
-          # - task: CopyFiles@2
-          #   inputs:
-          #     SourceFolder: "$(System.DefaultWorkingDirectory)/policies"
-          #     Contents: "**"
-          #     TargetFolder: "$(Build.ArtifactStagingDirectory)/policies"
-          #     CleanTargetFolder: true
-          #     OverWrite: true
-
-          # - task: CopyFiles@2
-          #   inputs:
-          #     SourceFolder: "$(System.DefaultWorkingDirectory)/scripts"
-          #     Contents: "**"
-          #     TargetFolder: "$(Build.ArtifactStagingDirectory)/scripts"
-          #     CleanTargetFolder: true
-          #     OverWrite: true
-
-          # - task: PublishBuildArtifacts@1
-          #   inputs:
-          #     PathtoPublish: "$(Build.ArtifactStagingDirectory)"
-          #     ArtifactName: "drop"
-          #     publishLocation: "Container"
+                dc-cli configure --clientId fb5c373c-73c4-406b-9d1e-2c25dff72870 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
