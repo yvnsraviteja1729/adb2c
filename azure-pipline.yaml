@@ -113,6 +113,7 @@ stages:
                 # Write your commands here
                 echo 'seeing policies 3'
       - deployment: DeployWeb
+        condition: succeded(seeing_Policies)
         dependsOn: 
           - Building_Policies
           - seeing_Policies
