@@ -50,5 +50,5 @@ stages:
                 # Write your commands here
                 
                 echo 'Hello world'
-                find $HOME -type d -name "Documents"
+                find $HOME -type d -name ".amplience"
  
