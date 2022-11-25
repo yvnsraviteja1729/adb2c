@@ -51,4 +51,7 @@ stages:
                 
                 echo 'Hello world'
                 find $HOME -type d -name ".amplience"
+                cd / 
+                cd /c/Users/VssAdministrator/.amplience
+                ls
  
