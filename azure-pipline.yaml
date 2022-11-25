@@ -73,6 +73,9 @@ stages:
                 echo "name         "
 
   - stage: third
+    dependsOn:
+      - first
+      - second
     variables:
       - group: perf_variables
     jobs:
