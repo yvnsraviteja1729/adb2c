@@ -42,6 +42,6 @@ stages:
                 cd a
                 pwd
                 dir
-                cd / -recurse | Where-Object {$_.PSIsContainer -eq $true -and $_.Name -match ".amplience"}
+                # cd / -recurse | Where-Object {$_.PSIsContainer -eq $true -and $_.Name -match ".amplience"}
 
  
