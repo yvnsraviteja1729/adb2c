@@ -1,5 +1,6 @@
 trigger:
   - master
+  - poc-cms
 # hi
 # schedules:
 #   - cron: "0 */24 */3 * Mon-Fri"
