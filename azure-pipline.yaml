@@ -113,7 +113,7 @@ stages:
                 # Write your commands here
                 echo 'seeing policies 3'
       - deployment: DeployWeb
-        condition: succeeded(seeing_Policies)
+        condition: succeeded()
         dependsOn: 
           - Building_Policies
           - seeing_Policies
