@@ -49,6 +49,7 @@ stages:
         #         echo 'seeing policies '
 
   - stage: second
+    dependsOn: first
     # variables:
     #     - group: perf_variables
     jobs:
@@ -71,10 +72,23 @@ stages:
               script: |
                 # Write your commands here
                 echo "name         "
-
   - stage: third
+    dependsOn: first
+    # variables:
+    #     - group: perf_variables
+    jobs:
+      - job: Building_Policies
+
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: "inline"
+              script: |
+                # Write your commands here
+                echo 'Hello world'
+  - stage: fourth
     dependsOn:
-      - first
+      - third
       - second
     variables:
       - group: perf_variables
