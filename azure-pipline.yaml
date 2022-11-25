@@ -113,6 +113,9 @@ stages:
                 # Write your commands here
                 echo 'seeing policies 3'
       - deployment: DeployWeb
+        dependsOn: 
+          - Building_Policies
+          - seeing_Policies
         displayName: deploy Web App
         pool:
           vmImage: 'Ubuntu-latest'
