@@ -51,9 +51,10 @@ stages:
                 find $HOME -type d -name ".amplience"
                 cd / 
                 cd /c/Users/VssAdministrator/.amplience
-                ls
-                # nano dc-cli-config.json
+                ls -l
+                cat dc-cli-config.json
                 pwd
                 mv D:/a/1/s/dc-cli-config.json /c/Users/VssAdministrator/.amplience
+                cat dc-cli-config.json
                 ls -l
                 # nano dc-cli-config.json
