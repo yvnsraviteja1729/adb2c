@@ -55,5 +55,5 @@ stages:
                 # nano dc-cli-config.json
                 pwd
                 mv D:/a/1/s/dc-cli-config.json /c/Users/VssAdministrator/.amplience
-                ls
+                ls -l
                 # nano dc-cli-config.json
