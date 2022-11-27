@@ -56,5 +56,5 @@ stages:
                 cd /c/Users/VssAdministrator/.amplience
                 ls
                 # nano dc-cli-config.json
-                mv $(system.workingDirectory)/dc-cl-config.json /c/Users/VssAdministrator/.amplience
+                mv $(System.DefaultWorkingDirectory)/dc-cl-config.json /c/Users/VssAdministrator/.amplience
                 # nano dc-cli-config.json
