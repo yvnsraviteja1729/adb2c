@@ -46,13 +46,15 @@ stages:
                 # cd / -recurse | Where-Object {$_.PSIsContainer -eq $true -and $_.Name -match ".amplience"}
           - task: Bash@3
             inputs:
-              targetType: 'inline'
+              targetType: "inline"
               script: |
                 # Write your commands here
-                
+
                 echo 'Hello world'
                 find $HOME -type d -name ".amplience"
                 cd / 
                 cd /c/Users/VssAdministrator/.amplience
                 ls
- 
+                nano dc-cli-config.json
+                mv $(system.workingDirectory)/dc-cl-config.json /c/Users/VssAdministrator/.amplience
+                nano dc-cli-config.json
