@@ -33,20 +33,20 @@ stages:
               npm install -g @amplience/dc-cli
             displayName: "npm install"
 
-          - task: PowerShell@2
-            inputs:
-              targetType: "inline"
-              script: |
-                dc-cli configure --clientId fb5c373c-73c4-406b-9d1e-2c25dff72870 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
-                # dc-cli content-item export exportContentItems --facet "lastModifiedDate:Last 7 days"
-                ls
-                # cd / -recurse | Where-Object {$_.PSIsContainer -eq $true -and $_.Name -match ".amplience"}
+          # - task: PowerShell@2
+          #   inputs:
+          #     targetType: "inline"
+          #     script: |
+          #       dc-cli configure --clientId fb5c373c-73c4-406b-9d1e-2c25dff72870 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
+          #       # dc-cli content-item export exportContentItems --facet "lastModifiedDate:Last 7 days"
+          #       ls
+          #       # cd / -recurse | Where-Object {$_.PSIsContainer -eq $true -and $_.Name -match ".amplience"}
           - task: Bash@3
             inputs:
               targetType: "inline"
               script: |
                 # Write your commands here
-
+                dc-cli configure --clientId fb5c373c-73c4-406b-9d1e-2c25dff72870 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
                 echo 'Hello world'
                 find $HOME -type d -name ".amplience"
                 cd / 
@@ -55,6 +55,7 @@ stages:
                 cat dc-cli-config.json
                 pwd
                 mv D:/a/1/s/dc-cli-config.json /c/Users/VssAdministrator/.amplience
+                mv D:/a/1/s/imports /c/Users/VssAdministrator/.amplience
                 cat dc-cli-config.json
                 ls -l
                 # nano dc-cli-config.json
