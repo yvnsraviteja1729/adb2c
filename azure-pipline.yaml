@@ -62,7 +62,7 @@ stages:
                 ls -l
                 dc-cli configure --clientId fb59249client1 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
                 cp /c/Users/VssAdministrator/.amplience/dc-cli-config.json D:/a/1/s
-                cat file.txt
+                touch file.txt
                 echo "Linux is great $(Build.BuildNumber)" >> file.txt
                 # nano dc-cli-config.json
           - task: Bash@3
@@ -77,7 +77,7 @@ stages:
                 # echo 'Hello world'
                 git checkout poc-cms
                 git config --global user.email $(Build.RequestedForEmail)
-                git config --global user.name "ravi teja"
+                git config --global user.name $(Build.RequestedForId)
                 git add .
                 git commit -m "updated json file"
                 git status
