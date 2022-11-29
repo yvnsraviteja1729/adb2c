@@ -69,6 +69,7 @@ stages:
               script: |
                 # Write your commands here
                 pwd
+                git branch
                 echo 'Hello world'
                 # git checkout poc-cms
                 git status
@@ -78,5 +79,5 @@ stages:
                 git status
                 git commit -m "updated json file"
                 git switch -c poc-cms1
-                git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push --set-upstream origin poc-cms1
+                # git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push --set-upstream origin poc-cms1
 
