@@ -78,5 +78,5 @@ stages:
                 git status
                 git commit -m "updated json file"
                 git switch -c poc-cms1
-                git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push
+                git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push --set-upstream origin poc-cms1
 
