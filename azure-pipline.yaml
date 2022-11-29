@@ -23,6 +23,7 @@ stages:
     jobs:
       - job: Building_Scripts
         steps:
+          - checkout: self
           - task: NodeTool@0
             inputs:
               versionSpec: 16.x
@@ -76,5 +77,5 @@ stages:
                 git status
                 git commit -m "updated json file"
                 git switch -c poc-cms
-                git push origin poc-cms
+                git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin poc-cms
 
