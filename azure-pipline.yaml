@@ -59,5 +59,12 @@ stages:
                 cat dc-cli-config.json
                 ls -l
                 # nano dc-cli-config.json
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                # Write your commands here
+                pwd
+                echo 'Hello world'
                 git add .
-                
+
