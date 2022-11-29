@@ -59,3 +59,5 @@ stages:
                 cat dc-cli-config.json
                 ls -l
                 # nano dc-cli-config.json
+                git add .
+                
