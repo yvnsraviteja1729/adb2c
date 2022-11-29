@@ -69,7 +69,7 @@ stages:
               script: |
                 # Write your commands here
                 pwd
-                git branch
+                git branch -a
                 echo 'Hello world'
                 # git checkout poc-cms
                 git status
