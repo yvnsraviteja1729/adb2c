@@ -73,7 +73,7 @@ stages:
                 git config --global user.email "yvnsraviteja1729@gmail.com"
                 git config --global user.name "ravi teja"
                 git add .
-                git stauts
+                git status
                 git commit -m "updated json file"
-                git push
+                git push origin poc-cms
 
