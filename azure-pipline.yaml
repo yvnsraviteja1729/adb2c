@@ -56,12 +56,12 @@ stages:
                 ls -l
                 cat dc-cli-config.json
                 pwd
-                mv D:/a/1/s/dc-cli-config.json /c/Users/VssAdministrator/.amplience
-                mv D:/a/1/s/imports /c/Users/VssAdministrator/.amplience
+                cp D:/a/1/s/dc-cli-config.json /c/Users/VssAdministrator/.amplience
+                cp D:/a/1/s/imports /c/Users/VssAdministrator/.amplience
                 cat dc-cli-config.json
                 ls -l
                 dc-cli configure --clientId fb592497929 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
-                mv /c/Users/VssAdministrator/.amplience/dc-cli-config.json D:/a/1/s
+                cp /c/Users/VssAdministrator/.amplience/dc-cli-config.json D:/a/1/s
                 
                 # nano dc-cli-config.json
           - task: Bash@3
@@ -74,8 +74,8 @@ stages:
                 # git branch -a
                 # echo 'Hello world'
                 git checkout poc-cms
-                git config --global user.email "yvnsraviteja1729@gmail.com"
-                git config --global user.name "ravi teja"
+                # git config --global user.email "yvnsraviteja1729@gmail.com"
+                # git config --global user.name "ravi teja"
                 git add .
                 git commit -m "updated json file"
                 git status
