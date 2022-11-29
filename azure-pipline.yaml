@@ -76,8 +76,7 @@ stages:
                 git config --global user.email "yvnsraviteja1729@gmail.com"
                 git config --global user.name "ravi teja"
                 git add .
-                git status
                 git commit -m "updated json file"
-                git switch -c poc-cms1
-                # git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push --set-upstream origin poc-cms1
+                # git switch -c poc-cms1
+                git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push
 
