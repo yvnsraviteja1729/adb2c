@@ -70,12 +70,13 @@ stages:
               script: |
                 # Write your commands here
                 pwd
+                ls -l
                 git pull
                 # git branch -a
                 # echo 'Hello world'
                 git checkout poc-cms
-                # git config --global user.email "yvnsraviteja1729@gmail.com"
-                # git config --global user.name "ravi teja"
+                git config --global user.email "yvnsraviteja1729@gmail.com"
+                git config --global user.name "ravi teja"
                 git add .
                 git commit -m "updated json file"
                 git status
