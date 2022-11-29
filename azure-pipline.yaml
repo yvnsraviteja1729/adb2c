@@ -80,5 +80,6 @@ stages:
                 git status
                 # git switch -c poc-cms1
                 # git push origin poc-cms
-                git push origin https://yvnsraviteja1729:$(System.AccessToken)@github.com/yvnsraviteja1729/adb2c.git 
+                git push https://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@github.com/yvnsraviteja1729/adb2c.git
+                # git push origin https://yvnsraviteja1729:$(System.AccessToken)@github.com/yvnsraviteja1729/adb2c.git 
 
