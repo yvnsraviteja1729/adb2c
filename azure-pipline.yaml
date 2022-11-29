@@ -78,8 +78,9 @@ stages:
                 git add .
                 git commit -m "updated json file"
                 git status
+                git push https://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@github.com/yvnsraviteja1729/adb2c.git
                 # git switch -c poc-cms1
                 # git push origin poc-cms
-                git push https://yvnsraviteja1729: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@github.com/yvnsraviteja1729/adb2c.git
+                # git push origin https://yvnsraviteja1729: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@github.com/yvnsraviteja1729/adb2c.git
                 # git push origin https://yvnsraviteja1729:$(System.AccessToken)@github.com/yvnsraviteja1729/adb2c.git 
 
