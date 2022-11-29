@@ -75,5 +75,5 @@ stages:
                 git add .
                 git status
                 git commit -m "updated json file"
-                git push origin poc-cms
+                git switch -c poc-cms
 
