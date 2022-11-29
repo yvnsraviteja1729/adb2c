@@ -70,9 +70,10 @@ stages:
                 pwd
                 echo 'Hello world'
                 git status
-                git add .
                 git config --global user.email "yvnsraviteja1729@gmail.com"
                 git config --global user.name "ravi teja"
+                git add .
+                git stauts
                 git commit -m "updated json file"
-                git push origin poc-cms
+                git push
 
