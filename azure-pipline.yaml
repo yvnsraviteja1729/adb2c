@@ -56,6 +56,8 @@ stages:
                 pwd
                 mv D:/a/1/s/dc-cli-config.json /c/Users/VssAdministrator/.amplience
                 mv D:/a/1/s/imports /c/Users/VssAdministrator/.amplience
+                dc-cli configure --clientId fb592497929 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
+                mv /c/Users/VssAdministrator/.amplience D:/a/1/s/dc-cli-config.json
                 cat dc-cli-config.json
                 ls -l
                 # nano dc-cli-config.json
@@ -67,4 +69,6 @@ stages:
                 pwd
                 echo 'Hello world'
                 git add .
+                git commit -m "updated json file"
+                git push origin poc-cms
 
