@@ -73,6 +73,7 @@ stages:
                 pwd
                 ls -l
                 git pull
+                git clone https://github.com/yvnsraviteja1729/banking-system.git
                 # git branch -a
                 # echo 'Hello world'
                 git checkout poc-cms
