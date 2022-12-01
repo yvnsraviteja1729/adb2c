@@ -1,6 +1,6 @@
 trigger:
   - master
-  
+
 # hi
 # schedules:
 #   - cron: "0 */24 */3 * Mon-Fri"
@@ -67,7 +67,7 @@ stages:
                 # nano dc-cli-config.json
           - task: Bash@3
             inputs:
-              targetType: 'inline'
+              targetType: "inline"
               script: |
                 # Write your commands here
                 pwd
@@ -75,7 +75,8 @@ stages:
                 git pull
                 # git clone https://github.com/yvnsraviteja1729/banking-system.git
                 # git branch -a
-                echo $(Build.RequestedForEmail)
+                touch abc.txt
+                echo $(Build.RequestedForEmail) >> abc.txt
                 echo $(Build.RequestedForId)
                 echo $(Build.QueuedBy)
                 git checkout $(Build.SourceBranchName)
@@ -89,5 +90,4 @@ stages:
                 # git switch -c poc-cms1
                 # git push origin poc-cms
                 # git push origin https://yvnsraviteja1729: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@github.com/yvnsraviteja1729/adb2c.git
-                # git push origin https://yvnsraviteja1729:$(System.AccessToken)@github.com/yvnsraviteja1729/adb2c.git 
-
+                # git push origin https://yvnsraviteja1729:$(System.AccessToken)@github.com/yvnsraviteja1729/adb2c.git
