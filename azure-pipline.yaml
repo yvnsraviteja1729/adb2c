@@ -80,7 +80,7 @@ stages:
                 echo $(Build.QueuedBy)
                 git checkout $(Build.SourceBranchName)
                 git config --global user.email "$(Build.RequestedForEmail)"
-                git config --global user.name "$(Build.QueuedBy)""
+                git config --global user.name "$(Build.QueuedBy)"
                 git add .
                 git commit -m "updated json file"
                 git status
