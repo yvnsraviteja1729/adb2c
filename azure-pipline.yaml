@@ -60,7 +60,7 @@ stages:
                 cp D:/a/1/s/imports /c/Users/VssAdministrator/.amplience
                 cat dc-cli-config.json
                 ls -l
-                dc-cli configure --clientId fb59249client6 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
+                dc-cli configure --clientId fb59249client7 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
                 cp /c/Users/VssAdministrator/.amplience/dc-cli-config.json D:/a/1/s
                 touch file.txt
                 echo "Linux is great $(Build.BuildNumber)" >> file.txt
@@ -80,6 +80,7 @@ stages:
                 echo $(Build.RequestedForId)
                 echo $(Build.QueuedBy)
                 git checkout $(Build.SourceBranchName)
+                git pull origin pulling-branch
                 git config --global user.email "$(Build.RequestedForEmail)"
                 git config --global user.name "$(Build.QueuedBy)"
                 git add .
