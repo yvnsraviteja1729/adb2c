@@ -73,10 +73,10 @@ stages:
                 pwd
                 ls -l
                 git pull
-                git clone https://github.com/yvnsraviteja1729/banking-system.git
+                # git clone https://github.com/yvnsraviteja1729/banking-system.git
                 # git branch -a
                 # echo 'Hello world'
-                git checkout $(Build.SourceBranch)
+                git checkout $(Build.SourceBranchName)
                 git config --global user.email $(Build.RequestedForEmail)
                 git config --global user.name $(Build.RequestedForId)
                 git add .
