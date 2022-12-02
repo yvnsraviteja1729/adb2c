@@ -80,7 +80,7 @@ stages:
                 echo $(Build.RequestedForId) >> abc.txt
                 echo $(Build.QueuedBy)
                 git checkout $(Build.SourceBranchName)
-                git pull origin pulling-branch
+                git pull origin pulling-branch --allow-unrelated-histories
                 git config --global user.email "$(Build.RequestedForEmail)"
                 git config --global user.name "$(Build.QueuedBy)"
                 git add abc.txt
