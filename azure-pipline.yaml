@@ -84,7 +84,7 @@ stages:
                 git config --global user.name "$(Build.QueuedBy)"
                 git add abc.txt
                 git commit -m "updated json file"
-                git pull origin pulling-branch --allow-unrelated-histories
+                git pull origin testing
                 git status
                 git push
                 # git push https://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@github.com/yvnsraviteja1729/adb2c.git
