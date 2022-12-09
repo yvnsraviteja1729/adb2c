@@ -25,15 +25,15 @@ stages:
         steps:
           - checkout: self
             persistCredentials: true
-          - task: NodeTool@0
-            inputs:
-              versionSpec: 16.x
-            displayName: "Install Node.js"
-            condition: succeeded()
+          # - task: NodeTool@0
+          #   inputs:
+          #     versionSpec: 16.x
+          #   displayName: "Install Node.js"
+          #   condition: succeeded()
 
-          - script: |
-              npm install -g @amplience/dc-cli
-            displayName: "npm install"
+          # - script: |
+          #     npm install -g @amplience/dc-cli
+          #   displayName: "npm install"
 
           # - task: PowerShell@2
           #   inputs:
@@ -43,52 +43,66 @@ stages:
           #       # dc-cli content-item export exportContentItems --facet "lastModifiedDate:Last 7 days"
           #       ls
           #       # cd / -recurse | Where-Object {$_.PSIsContainer -eq $true -and $_.Name -match ".amplience"}
+          # - task: Bash@3
+          #   inputs:
+          #     targetType: "inline"
+          #     script: |
+          #       # Write your commands here
+          #       dc-cli configure --clientId fb5 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
+          #       echo 'Hello world'
+          #       find $HOME -type d -name ".amplience"
+          #       cd / 
+          #       cd /c/Users/VssAdministrator/.amplience
+          #       ls -l
+          #       cat dc-cli-config.json
+          #       pwd
+          #       cp D:/a/1/s/dc-cli-config.json /c/Users/VssAdministrator/.amplience
+          #       cp D:/a/1/s/imports /c/Users/VssAdministrator/.amplience
+          #       cat dc-cli-config.json
+          #       ls -l
+          #       dc-cli configure --clientId fb59249client85827 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
+          #       cp /c/Users/VssAdministrator/.amplience/dc-cli-config.json D:/a/1/s
+          #       touch file.txt
+          #       echo "Linux is great $(Build.BuildNumber)" >> file.txt
+          #       # nano dc-cli-config.json
           - task: Bash@3
             inputs:
-              targetType: "inline"
+              targetType: 'inline'
               script: |
-                # Write your commands here
-                dc-cli configure --clientId fb5 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
-                echo 'Hello world'
-                find $HOME -type d -name ".amplience"
-                cd / 
-                cd /c/Users/VssAdministrator/.amplience
-                ls -l
-                cat dc-cli-config.json
-                pwd
-                cp D:/a/1/s/dc-cli-config.json /c/Users/VssAdministrator/.amplience
-                cp D:/a/1/s/imports /c/Users/VssAdministrator/.amplience
-                cat dc-cli-config.json
-                ls -l
-                dc-cli configure --clientId fb59249client85827 --clientSecret 37bf959995f350ece653151fb4b77e6e4507b10b5507e821ef8d7adf7b60cb99 --hubId 624d8849c9e77c0001fe136a
-                cp /c/Users/VssAdministrator/.amplience/dc-cli-config.json D:/a/1/s
-                touch file.txt
-                echo "Linux is great $(Build.BuildNumber)" >> file.txt
-                # nano dc-cli-config.json
-          - task: Bash@3
-            inputs:
-              targetType: "inline"
-              script: |
-                # Write your commands here
-                pwd
-                ls -l
-                git pull
-                # git clone https://github.com/yvnsraviteja1729/banking-system.git
-                # git branch -a
-                touch abc.txt
-                echo $(Build.RequestedForEmail) >> abc.txt
-                echo $(Build.RequestedForId) >> abc.txt
-                echo $(Build.QueuedBy)
-                git checkout $(Build.SourceBranchName)
-                git config --global user.email "$(Build.RequestedForEmail)"
-                git config --global user.name "$(Build.QueuedBy)"
-                git add *
-                git commit -m "updated json file"
-                git pull origin testing --allow-unrelated-histories
-                git status
-                git push
-                # git push https://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@github.com/yvnsraviteja1729/adb2c.git
-                # git switch -c poc-cms1
-                # git push origin poc-cms
-                # git push origin https://yvnsraviteja1729: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@github.com/yvnsraviteja1729/adb2c.git
-                # git push origin https://yvnsraviteja1729:$(System.AccessToken)@github.com/yvnsraviteja1729/adb2c.git
+                mkdir myfolder
+                ls -a
+                cd myfolder
+                touch README.md
+                git init
+                git add README.md
+                git commit -m "first commit"
+                git remote add origin git@github.com:yvnsraviteja1729/test_repo.git
+                git push -u origin master
+                ls -a
+          # - task: Bash@3
+          #   inputs:
+          #     targetType: "inline"
+          #     script: |
+          #       # Write your commands here
+          #       pwd
+          #       ls -l
+          #       git pull
+          #       # git clone https://github.com/yvnsraviteja1729/banking-system.git
+          #       # git branch -a
+          #       touch abc.txt
+          #       echo $(Build.RequestedForEmail) >> abc.txt
+          #       echo $(Build.RequestedForId) >> abc.txt
+          #       echo $(Build.QueuedBy)
+          #       git checkout $(Build.SourceBranchName)
+          #       git config --global user.email "$(Build.RequestedForEmail)"
+          #       git config --global user.name "$(Build.QueuedBy)"
+          #       git add *
+          #       git commit -m "updated json file"
+          #       git pull origin testing --allow-unrelated-histories
+          #       git status
+          #       git push
+          #       # git push https://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@github.com/yvnsraviteja1729/adb2c.git
+          #       # git switch -c poc-cms1
+          #       # git push origin poc-cms
+          #       # git push origin https://yvnsraviteja1729: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@github.com/yvnsraviteja1729/adb2c.git
+          #       # git push origin https://yvnsraviteja1729:$(System.AccessToken)@github.com/yvnsraviteja1729/adb2c.git
