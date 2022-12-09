@@ -77,8 +77,9 @@ stages:
                 touch README.md
                 git init
                 git add README.md
+                ls -a
                 git commit -m "first commit"
-                git remote add origin git@github.com:yvnsraviteja1729/test_repo.git
+                git remote add origin https://github.com/yvnsraviteja1729/test_repo.git
                 git push -u origin master
                 ls -a
           # - task: Bash@3
