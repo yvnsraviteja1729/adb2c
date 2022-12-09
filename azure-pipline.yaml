@@ -69,6 +69,8 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
+                git config --global user.email "$(Build.RequestedForEmail)"
+                git config --global user.name "$(Build.QueuedBy)"
                 mkdir myfolder
                 ls -a
                 cd myfolder
