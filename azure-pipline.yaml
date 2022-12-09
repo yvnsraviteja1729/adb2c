@@ -70,11 +70,11 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
+                mkdir myfolder
+                ls -a
+                cd myfolder
                 git config --global user.email "$(Build.RequestedForEmail)"
                 git config --global user.name "$(Build.QueuedBy)"
-                # mkdir myfolder
-                ls -a
-                # cd myfolder
                 touch README.md
                 git init
                 git add README.md
