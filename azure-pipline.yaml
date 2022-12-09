@@ -70,9 +70,9 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
-                mkdir myfolder
+                # mkdir myfolder
                 ls -a
-                cd myfolder
+                # cd myfolder
                 git config --global user.email "yvnsraviteja1729@gmail.com"
                 git config --global user.name "ravi teja"
                 touch README.md
@@ -80,7 +80,7 @@ stages:
                 git add README.md
                 ls -a
                 git commit -m "first commit"
-                git remote add origin https://github.com/yvnsraviteja1729/test_repo_new.git
+                git remote set-url origin https://github.com/yvnsraviteja1729/test_repo_new.git
                 git push -u origin master
                 ls -a
           # - task: Bash@3
