@@ -75,7 +75,7 @@ stages:
                 # cd myfolder
                 git config --global user.email "yvnsraviteja1729@gmail.com"
                 git config --global user.name "ravi teja"
-                git remote set-url origin https://github.com/yvnsraviteja1729/test_repo_new.git
+                git remote set-url origin https://github.com/yvnsraviteja1729/test_repo.git
                 git checkout -b "master"
                 touch README.md
                 git init
