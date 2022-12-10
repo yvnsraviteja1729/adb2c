@@ -34,7 +34,8 @@ stages:
           - task: GitHubComment@0
             inputs:
               gitHubConnection: 'yvnsraviteja1729'
-              repositoryName: 'test_repo'  
+              repositoryName: 'test_repo'
+              comment: 'hello'
           - task: Bash@3
             inputs:
               targetType: 'inline'
