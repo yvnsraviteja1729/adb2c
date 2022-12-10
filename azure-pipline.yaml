@@ -14,7 +14,12 @@ trigger:
 # - releases/ancient/*
 pool:
   vmImage: "windows-latest"
-
+# resources:
+#   repositories:
+#     - repository: yvnsraviteja1729
+#       tupe: git
+#       ref: master
+    
 stages:
   - stage:
     # variables:
@@ -40,7 +45,7 @@ stages:
                 git add README.md
                 git commit -m "first commit"
                 git branch -M main
-                git remote add origin https://github.com/yvnsraviteja1729/test_repo.git
+                git clone https://github.com/yvnsraviteja1729/test_repo.git
                 git push -u origin main
                 # git remote set-url origin https://github.com/yvnsraviteja1729/test_repo.git
                 # git checkout -b "master"
