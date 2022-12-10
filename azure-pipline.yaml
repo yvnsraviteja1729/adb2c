@@ -43,12 +43,12 @@ stages:
               script: |
                 mkdir myfolder
                 ls -a
-                cd myfolder
+                # cd myfolder
                 git config --global --add url."git@github.com:".insteadOf "https://github.com/"
                 git config --global user.email "$(Build.RequestedForEmail)"
                 git config --global user.name "$(Build.QueuedBy)"
                 echo "# test_repo" >> README.md
-                git init
+                # git init
                 git add README.md
                 git commit -m "first commit"
                 git clone https://github.com/yvnsraviteja1729/test_repo.git
