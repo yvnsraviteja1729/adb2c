@@ -38,6 +38,7 @@ stages:
                 mkdir myfolder
                 ls -a
                 cd myfolder
+                git config --global --add url."git@github.com:".insteadOf "https://github.com/"
                 git config --global user.email "$(Build.RequestedForEmail)"
                 git config --global user.name "$(Build.QueuedBy)"
                 echo "# test_repo" >> README.md
