@@ -35,6 +35,7 @@ stages:
             inputs:
               gitHubConnection: 'yvnsraviteja1729'
               repositoryName: 'test_repo'
+              id: 'ss'
               comment: 'hello'
           - task: Bash@3
             inputs:
@@ -43,7 +44,6 @@ stages:
                 mkdir myfolder
                 ls -a
                 cd myfolder
-                git config http.https://github.com/yvnsraviteja1729/.extraheader "AUTHORIZATION: placeholder_ff58bb43-f85d-4c77-b48b-e0e64d78b54b"
                 git config --global --add url."git@github.com:".insteadOf "https://github.com/"
                 git config --global user.email "$(Build.RequestedForEmail)"
                 git config --global user.name "$(Build.QueuedBy)"
