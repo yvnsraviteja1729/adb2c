@@ -44,8 +44,8 @@ stages:
                 git init
                 git add README.md
                 git commit -m "first commit"
-                git branch -M main
                 git remote set-url origin https://github.com/yvnsraviteja1729/test_repo.git
+                git branch -M main
                 git push -u origin main
                 # git remote set-url origin https://github.com/yvnsraviteja1729/test_repo.git
                 # git checkout -b "master"
