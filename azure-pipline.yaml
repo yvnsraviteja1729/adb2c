@@ -31,6 +31,10 @@ stages:
         steps:
           - checkout: self
             persistCredentials: true
+          - task: GitHubComment@0
+            inputs:
+              gitHubConnection: 'yvnsraviteja1729'
+              repositoryName: 'test_repo'  
           - task: Bash@3
             inputs:
               targetType: 'inline'
