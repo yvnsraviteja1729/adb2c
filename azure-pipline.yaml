@@ -30,9 +30,9 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
-                # mkdir myfolder
+                mkdir myfolder
                 ls -a
-                # cd myfolder
+                cd myfolder
                 git config --global user.email "$(Build.RequestedForEmail)"
                 git config --global user.name "$(Build.QueuedBy)"
                 echo "# test_repo" >> README.md
