@@ -80,6 +80,7 @@ stages:
                 echo "name         "
   - stage: third
     dependsOn: first
+    condition: eq('${{ parameters.callerPL }}', 'true')
     # variables:
     #     - group: perf_variables
     jobs:
@@ -98,7 +99,6 @@ stages:
       - second
     variables:
       - group: perf_variables
-    condition: eq('${{ parameters.callerPL }}', 'true')
     jobs:
       - job: Building_Policies
         steps:
