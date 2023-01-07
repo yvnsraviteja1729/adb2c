@@ -24,7 +24,7 @@ stages:
               script: |
                 # Write your commands here
                 echo 'Hello world'
-                echo $(environment)
+                echo $(check)
 
   - stage: second
     dependsOn: first
