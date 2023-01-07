@@ -87,7 +87,6 @@ stages:
                 # Write your commands here
                 echo 'Hello world'
   - stage: fourth
-    condition: not(triggered())
     dependsOn:
       - third
       - second
