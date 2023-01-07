@@ -5,13 +5,13 @@ trigger:
 pool:
   vmImage: "windows-latest"
 
-schedules:
-- cron: "0/60 */24 * * *"
-  displayName: Every 6 hours build
-  branches:
-    include:
-    - feature/*
-  always: true
+# schedules:
+# - cron: "0/60 */24 * * *"
+#   displayName: Every 6 hours build
+#   branches:
+#     include:
+#     - feature/*
+#   always: true
 
 
 stages:
