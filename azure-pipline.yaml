@@ -1,15 +1,7 @@
 trigger:
   - master
-# hi
-# schedules:
-#   - cron: "0 */24 */3 * Mon-Fri"
-#     displayName: Daily midnight build
-#     branches:
-#       include:
-#       - master
-# - features/*
-# exclude:
-# - releases/ancient/*
+  - feature/trigger-poc
+
 pool:
   vmImage: "windows-latest"
 
@@ -19,41 +11,20 @@ parameters:
     type: boolean
     default: false
 
-
 stages:
   - stage: first
     variables:
       - group: perf_variables
     jobs:
-      # - job: Building_Policies
-
-      #   steps:
-      #     - task: Bash@3
-      #       inputs:
-      #         targetType: 'inline'
-      #         script: |
-      #           # Write your commands here
-      #           echo 'Hello world'
-      #           echo $(environment)
-
-      - job: seeing_Policies
+      - job: Building_Policies
         steps:
-          - template: template.yml
-            parameters:
-              whichState:
-                - "Shop_Browse"
-                - "Shop_CMS"
-                - "Shop_BAC"
-                - "Shop_Personalization"
-                - "Manual_Execution"
-
-        # steps:
-        #   - task: Bash@3
-        #     inputs:
-        #       targetType: 'inline'
-        #       script: |
-        #         # Write your commands here
-        #         echo 'seeing policies '
+          - task: Bash@3
+            inputs:
+              targetType: "inline"
+              script: |
+                # Write your commands here
+                echo 'Hello world'
+                echo $(environment)
 
   - stage: second
     dependsOn: first
@@ -70,15 +41,6 @@ stages:
                 # Write your commands here
                 echo 'Hello world'
 
-      - job: seeing_Policies
-
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: "inline"
-              script: |
-                # Write your commands here
-                echo "name         "
   - stage: third
     dependsOn: first
     condition: eq('${{ parameters.callerPL }}', 'true')
@@ -109,30 +71,4 @@ stages:
               script: |
                 # Write your commands here
                 echo 'Hello world 3'
-                echo $(environment)
-
-      - job: seeing_Policies
-
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: "inline"
-              script: |
-                # Write your commands here
-                echo 'seeing policies 3'
-      - deployment: DeployWeb
-        condition: succeeded()
-        dependsOn: 
-          - Building_Policies
-          - seeing_Policies
-        displayName: deploy Web App
-        pool:
-          vmImage: 'Ubuntu-latest'
-        # creates an environment if it doesn't exist
-        environment: 'manual_approval'
-        strategy:
-          runOnce:
-            deploy:
-              steps:
-              - script: echo Hello world
-      
+                echo $(check)
