@@ -13,6 +13,12 @@ trigger:
 pool:
   vmImage: "windows-latest"
 
+parameters:
+  - name: callerPL
+    displayName: "Run stage 4"
+    type: boolean
+    default: false
+
 stages:
   - stage: first
     variables:
@@ -92,6 +98,7 @@ stages:
       - second
     variables:
       - group: perf_variables
+    condition: eq(variables.callerPL, true)  
     jobs:
       - job: Building_Policies
         steps:
