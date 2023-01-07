@@ -12,12 +12,12 @@ parameters:
     default: false
 
 variables:
-  - name: check
+  - name: check2
     value: false
 
 stages:
   - stage: first
-    condition: eq(variables.check, 'true')
+    condition: eq(variables.check2, 'true')
     variables:
       - group: perf_variables
     jobs:
