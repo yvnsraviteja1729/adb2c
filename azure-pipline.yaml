@@ -98,7 +98,7 @@ stages:
       - second
     variables:
       - group: perf_variables
-    condition: eq(variables.callerPL, true)  
+    condition: eq(variables.callerPL, 'true')  
     jobs:
       - job: Building_Policies
         steps:
