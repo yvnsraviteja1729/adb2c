@@ -19,6 +19,9 @@ parameters:
     type: boolean
     default: false
 
+variables:
+  - name: check
+    value: false
 stages:
   - stage: first
     variables:
