@@ -17,7 +17,7 @@ variables:
 
 stages:
   - stage: first
-    condition: eq(variables.check1, 'true')
+    # condition: eq(variables.check1, 'true')
     variables:
       - group: perf_variables
     jobs:
