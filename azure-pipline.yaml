@@ -38,6 +38,7 @@ stages:
               script: |
                 # Write your commands here
                 echo 'Hello world'
+                $check1='abc'
                 echo $(check1)
 
   - stage: second
@@ -77,6 +78,7 @@ stages:
       - second
     variables:
       - group: perf_variables
+      
     jobs:
       - job: Building_Policies
         steps:
