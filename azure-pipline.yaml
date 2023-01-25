@@ -33,12 +33,13 @@ stages:
           env:
             SYSTEM_ACCESSTOKEN: $(System.AccessToken)
         - task: Bash@3
+          name: Bash123
           inputs:
               targetType: "inline"
               script: |
                 # Write your commands here
                 echo 'Hello world'
-                $check1='abc'
+                echo '##vso[task.setvariable variable=Checker;isOutput=true]true'
                 echo $(check1)
 
   - stage: second
@@ -78,7 +79,9 @@ stages:
       - second
     variables:
       - group: perf_variables
-      
+      - name: checker
+        value: $[ dependencies.Sanity_on_QA.outputs['SanityTest.PythonScript.Checker'] ]  
+    condition: eq(variables['checker'], 'true')
     jobs:
       - job: Building_Policies
         steps:
