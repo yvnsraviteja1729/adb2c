@@ -80,7 +80,7 @@ stages:
     variables:
       - group: perf_variables
       - name: checker
-        value: $[ dependencies.Sanity_on_QA.outputs['SanityTest.PythonScript.Checker'] ]  
+        value: $[ dependencies.first.outputs['Building_Policies.Bash123.Checker'] ]  
     condition: eq(variables['checker'], 'true')
     jobs:
       - job: Building_Policies
