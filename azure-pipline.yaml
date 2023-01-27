@@ -80,7 +80,8 @@ stages:
     variables:
       - group: perf_variables
       - name: checker
-        value: $[ dependencies.first.outputs['Building_Policies.Bash123.Checker'] ]  
+        # value: $[ dependencies.first.outputs['Building_Policies.Bash123.Checker'] ]  
+        value: $[ stageDependencies.first.Building_Policies.outputs['Bash123.Checker'] ]  
     condition: eq(variables['checker'], 'true')
     jobs:
       - job: Building_Policies
