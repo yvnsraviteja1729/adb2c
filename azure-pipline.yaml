@@ -23,17 +23,17 @@ stages:
         - group: perf_variables
         steps:
         
-        # - task: SendEmail@1
-        #   inputs:
-        #     To: 'venkatanagasairaviteja.yelchuri@publicissapient.com'
-        #     From: 'yelchurisairaviteja@gmail.com'
-        #     Subject: 'test mail'
-        #     Body: 'this is the test body'
-        #     BodyAsHtml: false
-        #     AddAttachment: false
-        #     SmtpServer: 'smtp.gmail.com'
-        #     SmtpUsername: 'yelchurisairaviteja@gmail.com'
-        #     SmtpPassword: 'golydeqkjjyaimin'
+        - task: SendEmail@1
+          inputs:
+            To: 'venkatanagasairaviteja.yelchuri@publicissapient.com'
+            From: 'yelchurisairaviteja@gmail.com'
+            Subject: 'test mail'
+            Body: 'this is the test body'
+            BodyAsHtml: false
+            AddAttachment: false
+            SmtpServer: 'smtp.gmail.com'
+            SmtpUsername: 'yelchurisairaviteja@gmail.com'
+            SmtpPassword: 'golydeqkjjyaimin'
 
         # - task: Bash@3
         #   inputs:
@@ -44,38 +44,38 @@ stages:
         #       echo $(Build.RequestedForEmail)
 
 
-          - task: PowerShell@2
-            inputs:
-              targetType: "inline"
-              script: |
-                # Echo out the Variables for the log      
-                # write-host $(B2CTENANTNAME) $(CLIENTCREDAPPID) $(ProxyIdentityExperienceFrameworkAppName) $(IdentityExperienceFrameworkAppName) $(B2CExtensionAttributeAppName) $(AppInsightInstrumentationKey) 
-                write-host $(check) $(environment)
-                # run the deployment script that modifies the policies and then uploads them
-                # .\scripts\build-prepare.ps1 -PolicyPath .\policies -PolicyPrefix $(B2CPolicyPrefix) -TenantName $(B2CTENANTNAME) -AppID $(CLIENTCREDAPPID) -AppKey $(CLIENTCREDAPPKEY) -ProxyIdentityExperienceFrameworkAppName $(ProxyIdentityExperienceFrameworkAppName) -IdentityExperienceFrameworkAppName $(IdentityExperienceFrameworkAppName) -B2CExtensionAttributeAppName $(B2CExtensionAttributeAppName) -ConfigKeyValues $params 
-                .\runShells.ps1 -ScriptsPath ".\scripts"
-          - task: CopyFiles@2
-            inputs:
-              SourceFolder: "$(System.DefaultWorkingDirectory)/policies"
-              Contents: "**"
-              TargetFolder: "$(Build.ArtifactStagingDirectory)/policies"
-              CleanTargetFolder: true
-              OverWrite: true
+          # - task: PowerShell@2
+          #   inputs:
+          #     targetType: "inline"
+          #     script: |
+          #       # Echo out the Variables for the log      
+          #       # write-host $(B2CTENANTNAME) $(CLIENTCREDAPPID) $(ProxyIdentityExperienceFrameworkAppName) $(IdentityExperienceFrameworkAppName) $(B2CExtensionAttributeAppName) $(AppInsightInstrumentationKey) 
+          #       write-host $(check) $(environment)
+          #       # run the deployment script that modifies the policies and then uploads them
+          #       # .\scripts\build-prepare.ps1 -PolicyPath .\policies -PolicyPrefix $(B2CPolicyPrefix) -TenantName $(B2CTENANTNAME) -AppID $(CLIENTCREDAPPID) -AppKey $(CLIENTCREDAPPKEY) -ProxyIdentityExperienceFrameworkAppName $(ProxyIdentityExperienceFrameworkAppName) -IdentityExperienceFrameworkAppName $(IdentityExperienceFrameworkAppName) -B2CExtensionAttributeAppName $(B2CExtensionAttributeAppName) -ConfigKeyValues $params 
+          #       .\runShells.ps1 -ScriptsPath ".\scripts"
+          # - task: CopyFiles@2
+          #   inputs:
+          #     SourceFolder: "$(System.DefaultWorkingDirectory)/policies"
+          #     Contents: "**"
+          #     TargetFolder: "$(Build.ArtifactStagingDirectory)/policies"
+          #     CleanTargetFolder: true
+          #     OverWrite: true
 
           
-          - task: PublishBuildArtifacts@1
-            inputs:
-              PathtoPublish: "$(Build.ArtifactStagingDirectory)"
-              ArtifactName: "drop"
-              # publishLocation: ""      
-          - task: PublishBuildArtifacts@1
-            inputs:
-              PathtoPublish: "$(Build.ArtifactStagingDirectory)"
-              ArtifactName: "drop2"
+          # - task: PublishBuildArtifacts@1
+          #   inputs:
+          #     PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+          #     ArtifactName: "drop"
+          #     # publishLocation: ""      
+          # - task: PublishBuildArtifacts@1
+          #   inputs:
+          #     PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+          #     ArtifactName: "drop2"
               # publishLocation: "Container"          
-      - job: download
-        dependsOn: Building_Policies
-        steps:
+      # - job: download
+      #   dependsOn: Building_Policies
+      #   steps:
         # - task: DownloadBuildArtifacts@0
         #   inputs:
         #     buildType: 'current'
@@ -90,17 +90,17 @@ stages:
         #             artifactName: 'drop2'
         #             downloadPath: '$(System.DefaultWorkingDirectory)'
 
-        - task: Bash@3
-          inputs:
-              targetType: "inline"
-              script: |
-                ls 
-                echo $(System.DefaultWorkingDirectory)
-                echo $(System.ArtifactsDirectory)
-                echo $(Build.ArtifactStagingDirectory)
-                pwd
-                cd $(Build.ArtifactStagingDirectory)
-                ls
+        # - task: Bash@3
+        #   inputs:
+        #       targetType: "inline"
+        #       script: |
+        #         ls 
+        #         echo $(System.DefaultWorkingDirectory)
+        #         echo $(System.ArtifactsDirectory)
+        #         echo $(Build.ArtifactStagingDirectory)
+        #         pwd
+        #         cd $(Build.ArtifactStagingDirectory)
+        #         ls
        
         # - task: SendEmail@1
         #   inputs:
