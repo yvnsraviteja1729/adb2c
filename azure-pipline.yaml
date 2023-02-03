@@ -48,7 +48,7 @@ stages:
               #########################
               ## Get tfsids of users whom to send mail
               $mailusers = "$sendmailto"
-              $mymailusers = $mailusers -split "",""
+              $mymailusers = $mailusers -split ","
               $pat = "Bearer $env:System_AccessToken"
               $myurl ="https://dev.azure.com/${myorg}/_apis/projects/${myproj}/teams?api-version=5.1"
               $data = Invoke-RestMethod -Uri "$myurl" -Headers @{Authorization = $pat}
