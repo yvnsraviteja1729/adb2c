@@ -1,5 +1,5 @@
 trigger:
-  - master
+  # - master
   - feature/pipelines
 
 pool:
@@ -72,7 +72,7 @@ stages:
               $myusershash = @{}
               for ($i = 0; $i -lt $myfinalusersaray.count; $i++)
               {
-              $myusershash[$myfinalusersaray[$i].split("":"")[1]] = $myfinalusersaray[$i].split(":")[0]
+              $myusershash[$myfinalusersaray[$i].split(":")[1]] = $myfinalusersaray[$i].split(":")[0]
               }
               ##
               ## create list of tfsid of mailers
