@@ -33,7 +33,7 @@ stages:
             AddAttachment: false
             SmtpServer: 'smtp.gmail.com'
             SmtpUsername: 'yelchurisairaviteja@gmail.com'
-            SmtpPassword: 'golydeqkjjyaimin'
+            SmtpPassword: 'wncowwwlsurjlqxq'
 
         # - task: Bash@3
         #   inputs:
